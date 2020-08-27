@@ -46,7 +46,6 @@ function evaluate(){
         }
     });
     clearInput();
-    calculationValues.push(result);
     screenInput.textContent="";
     displayInput(result);
 }
