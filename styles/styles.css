@@ -11,18 +11,27 @@
 }
 
 #screen {
-    width: 20em;
-    height: 5em;
-    margin-top: 5em;
+    width: 6em;
+    padding-right: 0.1em;
+    height: 2em;
+    margin-top: 2em;
     background-image: linear-gradient(45deg,#bfdbbb,#c4dcc1);
     border-radius: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 3em;
+    font: Arial, sans-serif;
+    overflow: hidden;
+    border: solid silver;
 }
 
 #button-holder {
     width: 27em;
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    margin-top: 4em
 }
 
 button {
@@ -31,39 +40,49 @@ button {
     margin: 1em 0.5em 0 0.5em;
 }
 
+button:hover{
+    transform:scale(1.1);
+}
+
+button:active{
+    background-color: rgb(185, 229, 255);
+}
+
+
 .int-btn{
     color: white;
     background-color: black;
     border: solid white;
     text-shadow: 0px 0px 0px white;
+    font-weight: bolder;
 }
 
 .op-btn {
     border-radius: 18%;
     color:black;
-    text-shadow: 0px 0px 0px black;
+    text-shadow: 0px 0px 2px white;
     background-color: white;
     border: solid black;
+    font-weight: bolder;
 }
 
 .clear-btn {
     border-radius: 18%;
+    width: 13.3em;
     color:black;
     border: solid black;
     text-shadow: 0px 0px 0px black;
     background-image: linear-gradient(45deg,#9e0000,rgb(226, 84, 48));
+    font-weight: bolder;
 }
 
 .equal-btn{
     border-radius: 18%;
+    width: 13.3em;
     color:black;
     border: solid black;
     text-shadow: 0px 0px 0px black;
     background-image: radial-gradient(rgba(247, 205, 128),orange);
+    font-weight: bolder;
 }
 
-#screen {
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}

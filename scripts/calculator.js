@@ -8,48 +8,72 @@ numberButtons.forEach(button => button.addEventListener("click", () => displayIn
 operatorButtons.forEach(button => button.addEventListener("click", () => operatorPressed(button.textContent)));
 clearButton.addEventListener("click", clearInput);
 equalButton.addEventListener("click", evaluate);
-let calculationValues = [];
+
+let lastButtonWasOperator = false;
+let calculationMemory = [];
+let screenString = "0";
+let lastScreenString = "0";
+let snarkyMessage = "Criminal!";
 
 function displayInput(sym){
-
-    screenInput.textContent+=sym;
+    if(sym === "."){
+        if (screenString.includes(sym)){
+            return;
+        }
+    }
+    if (screenString === "0" || lastButtonWasOperator || screenString === snarkyMessage){
+        screenString = sym;
+    }
+    else{
+        screenString+=sym;
+    }
+    lastButtonWasOperator = false;
+    screenInput.textContent = screenString;
 }
 
 function clearInput(){
-    screenInput.textContent = "";
-    calculationValues = [];
+    calculationMemory = [];
+    screenString = "0";
+    screenInput.textContent = "0";
 }
 function operatorPressed(operator){
-    calculationValues.push(parseInt(screenInput.textContent));
-    calculationValues.push(operator);
-    screenInput.textContent = "";
-}
+    evaluate();
+    calculationMemory[1] = operator;
+    
 
+    lastButtonWasOperator = true;
+}
 function evaluate(){
-    calculationValues.push(parseInt(screenInput.textContent));
-    let result = 0;
-    let currentOperator = "";
-    let currentNum1 = 0;
-    let currentNum2 = 0;
-    let firstNumberAssigned = false;
-    calculationValues.forEach(value => {
-        if (!firstNumberAssigned){
-            currentNum1 = value;
-            firstNumberAssigned = true;
-        }
-        else if(typeof value != "number"){
-            currentOperator = value;
-        }
-        else{
-            currentNum2 = value;
-            result = operate(currentOperator, currentNum1, currentNum2);
-        }
-    });
-    clearInput();
-    screenInput.textContent="";
-    displayInput(result);
-}
+    
+    let result;
+    
+    if (!calculationMemory[1]){
+        calculationMemory[0] = parseFloat(screenString);
+        result = calculationMemory[0];
+    }
 
+    else if (calculationMemory[1] && !calculationMemory[0]){
+        calculationMemory[0] = parseFloat(screenString);
+        result = calculationMemory[0];
+
+    }
+
+    else if (calculationMemory[1] && calculationMemory[0]){
+        console.log(1);
+        result = operate(calculationMemory[1], calculationMemory[0], parseFloat(screenString));
+        calculationMemory[0] = result;
+        calculationMemory.pop();
+    }
+    
+    screenString = "";
+    displayInput(result);
+
+
+}
+/*
+    
+   
+*/ 
 
 function add (num1, num2){
     return num1+num2;
@@ -65,10 +89,10 @@ function multiply(num1, num2){
 
 function divide(num1, num2){
     if (num2 == 0){
-        return "That's illegal!";
+        return snarkyMessage;
     }
     else{
-        return Math.round(((num1/num2) + Number.EPSILON) * 10000000) / 10000000;
+        return Math.round(((num1/num2) + Number.EPSILON) * 1000000) / 1000000;
     }
 }
 
