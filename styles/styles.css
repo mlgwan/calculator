@@ -1,8 +1,8 @@
 #calculator {
     display: flex;
     margin: auto;
-    width: 45%;
-    height: 40em;
+    width: 40em;
+    height: 50em;
     background-image: linear-gradient(90deg, #444, #1a1a1a);
     border-radius: 12%;
     justify-content: center;
@@ -71,7 +71,7 @@ button:active{
 
 .clear-btn {
     border-radius: 18%;
-    width: 36.3%;
+    width: 36.6%;
     color:black;
     border: solid black;
     text-shadow: 0px 0px 0px black;
@@ -81,7 +81,7 @@ button:active{
 
 .equal-btn{
     border-radius: 18%;
-    width: 36.3%;    color:black;
+    width: 36.6%;    color:black;
     border: solid black;
     text-shadow: 0px 0px 0px black;
     background-image: radial-gradient(rgba(247, 205, 128),orange);
