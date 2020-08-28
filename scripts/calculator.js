@@ -24,13 +24,14 @@ document.onkeydown = (e) => {
     else if (operatorButtonKeyboardKeys.find((key) => key == e.key)){
         operatorPressed(e.key);
     }
-    else if (e.key === "Escape"){
+    else if (e.key === "Escape" || e.key === "c"){
         clearInput();
     }
 
     else if (e.key === "Enter"){
         evaluate(true);
     }
+    console.log(e.key);
 };
 
 function displayInput(sym){
