@@ -8,22 +8,24 @@
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
+    border: 1em solid silver;
 }
 
 #screen {
-    width: 6em;
-    padding-right: 0.1em;
-    height: 2em;
-    margin-top: 2em;
+    width: 22em;
+    height: 9em;
+    margin-top: 4em;
     background-image: linear-gradient(45deg,#bfdbbb,#c4dcc1);
     border-radius: 4%;
+    border: 0.3em solid black;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 3em;
-    font: Arial, sans-serif;
-    overflow: hidden;
-    border: solid silver;
+}
+#screen-input {
+    padding-right:0.1em;
+    font: bold 4em "Lucida Console", monospace;
+    overflow-y: auto;
 }
 
 #button-holder {
