@@ -26,6 +26,7 @@
     padding-right:1%;
     font: bold 450% "Lucida Console", monospace;
     overflow-y: auto;
+    font-family: 'Calculator';
 }
 
 #button-holder {
@@ -41,6 +42,8 @@ button {
     width: 17%;
     height: 20%;
     margin: 0 1.3% 0 1.3%;
+    font-size: xx-large;
+    font-family: 'calculator';
 }
 
 button:hover{
@@ -88,3 +91,10 @@ button:active{
     font-weight: bolder;
 }
 
+@font-face {
+    font-family: 'calculator';
+    src: url('fonts/calculator-webfont.woff2') format('woff2'),
+         url('fonts/calculator-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
