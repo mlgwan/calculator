@@ -9,10 +9,12 @@
     align-items: flex-start;
     flex-wrap: wrap;
     border: 1em solid silver;
+    outline: 0.4em solid black;
 }
 body {
     background-image: url(images/wood-wooden-desktop-table-f333165a19ab084130b2171b9df00878.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 #screen {
     width: 80%;
